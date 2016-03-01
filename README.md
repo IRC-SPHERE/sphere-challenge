@@ -2,7 +2,7 @@
 
 All use of the data must cite the following: 
 
-Twomey N. and Diethe T. and Kull M. and Hannuna S. and Camplani M. and Fafoutis X. and Zhu N. and Woznowski P. and Flach P. and Craddock I. _The SPHERE Challenge: Activity Recognition with Multimodal Sensor Data_. 2016.
+Twomey N. and Diethe T. and Kull M. and Hannuna S. and Camplani M. and Song H. and Fafoutis X. and Zhu N. and Woznowski P. and Flach P. and Craddock I. _The SPHERE Challenge: Activity Recognition with Multimodal Sensor Data_. 2016.
 
 This dataset has an associated homepage (http://irc-sphere.ac.uk/sphere-challenge/home), with the following pages
 

@@ -120,7 +120,7 @@ This labels the room that is currently occupied by the recruited participant. Th
 
 `location_names = ('bath', 'bed1', 'bed2', 'hall', 'kitchen', 'living', 'stairs', 'study', 'toilet')`
 
-Locations.csv contains the following four columns:
+locations.csv contains the following four columns:
 
 * start: the time a participant entered a room (relative to the start of the sequence)
 * end: the time the participant left the room (relative to the start of the sequence)
@@ -130,7 +130,7 @@ Locations.csv contains the following four columns:
 
 ### annotations\_*.csv (available in train only)
 
-Annotations.csv contains the following four columns:
+annotations.csv contains the annotations that were provided by the annotators. Each file contains the following:
 
 * start: the start time of the activity (relative to the start of the sequence)
 * end: the end time of the activity (relative to the start of the sequence)

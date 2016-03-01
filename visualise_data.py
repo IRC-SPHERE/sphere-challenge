@@ -12,6 +12,23 @@ import json
 
 import os
 
+
+
+
+import numpy as np 
+import pandas as pd
+
+import seaborn as sns
+import matplotlib.pyplot as pl 
+
+import datetime
+
+import itertools as it 
+
+import json
+
+import os
+
 sns.set_style("darkgrid")
 sns.set_context('poster')
 
@@ -28,6 +45,8 @@ def slice_df(df, start_end):
     
     inds = (df.index >= start_end[0]) & (df.index < start_end[1])
     return df[inds]
+
+
 
 def slice_df_start_stop(df, start_end):
     """
@@ -82,7 +101,6 @@ class Sequence(Slicer):
         self.path = data_path 
         
         video_cols = json.load(open(os.path.join(meta_root, 'video_feature_names.json')))
-        
         self.centre_2d = video_cols['centre_2d']
         self.bb_2d = video_cols['bb_2d']
         self.centre_3d = video_cols['centre_3d']
@@ -103,68 +121,51 @@ class Sequence(Slicer):
         
 
     def load_wearable(self): 
-        try:
-            accel_rssi = pd.read_csv(os.path.join(self.path, 'acceleration.csv'), index_col='t')
-            self.acceleration = accel_rssi[self.acceleration_keys]
-            self.rssi = pd.DataFrame(index=self.acceleration.index)
-            for kk in self.rssi_keys:
-                if kk in accel_rssi:
-                    self.rssi[kk] = accel_rssi[kk]
-                    
-                else: 
-                    self.rssi[kk] = np.nan
-                    accel_rssi[kk] = np.nan
-            
-            self.accel_rssi = accel_rssi
-            self.wearable_loaded = True
-        
-        except: 
-            raise IOError("Wearable data not found.")
+        accel_rssi = pd.read_csv(os.path.join(self.path, 'acceleration.csv'), index_col='t')
+        self.acceleration = accel_rssi[self.acceleration_keys]
+        self.rssi = pd.DataFrame(index=self.acceleration.index)
+        for kk in self.rssi_keys:
+            if kk in accel_rssi:
+                self.rssi[kk] = accel_rssi[kk]
+
+            else: 
+                self.rssi[kk] = np.nan
+                accel_rssi[kk] = np.nan
+
+        self.accel_rssi = accel_rssi
+        self.wearable_loaded = True
         
     def load_environmental(self): 
-        try:
-            self.pir = pd.read_csv(os.path.join(self.path, 'pir.csv'))
-            self.pir_loaded = True
-        
-        except: 
-            raise IOError("PIR data not found.")
+        self.pir = pd.read_csv(os.path.join(self.path, 'pir.csv'))
+        self.pir_loaded = True
     
     def load_video(self):
-        try:
-            self.video = dict()
-            for location in self.video_names: 
-                filename = os.path.join(self.path, 'video_{}.csv'.format(location))
-                self.video[location] = pd.read_csv(filename, index_col='t')
-            
-            self.video_loaded = True
-        
-        except: 
-            raise IOError("Video data not found.")
+        self.video = dict()
+        for location in self.video_names: 
+            filename = os.path.join(self.path, 'video_{}.csv'.format(location))
+            self.video[location] = pd.read_csv(filename, index_col='t')
+
+        self.video_loaded = True
         
     def load_annotations(self): 
-        try:
-            # ANNOTATIONS
-            self.num_annotators = 0
+        self.num_annotators = 0
 
-            self.annotations = []
-            self.locations = []
+        self.annotations = []
+        self.locations = []
 
-            while True: 
-                annotation_filename = "{}/annotations_{}.csv".format(self.path, self.num_annotators)
-                location_filename = "{}/location_{}.csv".format(self.path, self.num_annotators)
+        while True: 
+            annotation_filename = "{}/annotations_{}.csv".format(self.path, self.num_annotators)
+            location_filename = "{}/location_{}.csv".format(self.path, self.num_annotators)
 
-                if not os.path.exists(annotation_filename): 
-                    break 
+            if not os.path.exists(annotation_filename): 
+                break 
 
-                self.annotations.append(pd.read_csv(annotation_filename))
-                self.locations.append(pd.read_csv(location_filename))
+            self.annotations.append(pd.read_csv(annotation_filename))
+            self.locations.append(pd.read_csv(location_filename))
 
-                self.num_annotators += 1
-            
-            self.annotations_loaded = True
+            self.num_annotators += 1
         
-        except: 
-            raise IOError("Annotation data not found.")
+        self.annotations_loaded = self.num_annotators != 0
         
     def load(self): 
         self.load_wearable()
@@ -207,7 +208,7 @@ class SequenceVisualisation(Sequence):
             offset = offsets[ai]
             
             for index, rr in slice_df_start_stop(self.annotations[ai], lu).iterrows():
-                pl.plot([rr['start'], rr['end']], [rr['index'] + offset * 2] * 2, color=col, linewidth=5)
+                pl.plot([rr['start'], rr['end']], [self.activity_targets.index(rr['name']) + offset * 2] * 2, color=col, linewidth=5)
             
         pl.yticks(np.arange(len(self.activity_targets)), self.activity_targets)
         pl.ylim((-1, len(self.activity_targets)))
@@ -226,7 +227,7 @@ class SequenceVisualisation(Sequence):
             col = next(palette)
             offset = offsets[ai]
             for index, rr in slice_df_start_stop(self.locations[ai], lu).iterrows():
-                pl.plot([rr['start'], rr['end']], [rr['index'] + offset * 2] * 2, color=col, linewidth=5, alpha=0.5)
+                pl.plot([rr['start'], rr['end']], [self.location_targets.index(rr['name']) + offset * 2] * 2, color=col, linewidth=5, alpha=0.5)
                 
         pl.yticks(np.arange(len(self.location_targets)), self.location_targets)
         pl.ylim((-1, len(self.location_targets)))
@@ -242,7 +243,7 @@ class SequenceVisualisation(Sequence):
         
         pl.sca(axes[second])
         for index, rr in slice_df_start_stop(self.pir, lu).iterrows():
-            pl.plot([rr['start'], rr['end']], [rr['index']] * 2, 'k')
+            pl.plot([rr['start'], rr['end']], [self.location_targets.index(rr['name'])] * 2, 'k')
         
         pl.yticks(np.arange(len(self.pir_names)), self.pir_names)
         pl.ylim((-1, len(self.pir_names)))
@@ -318,8 +319,14 @@ class SequenceVisualisation(Sequence):
         self.plot_video(self.centre_2d, plot_range)
 
         
-
 def main(): 
+    sns.set_style("darkgrid")
+    sns.set_context('poster')
+    
+    pd.set_option("display.max_rows", 30)
+    pd.set_option('display.width', 1000)
+
+
     """
     This function will plot all of the sensor data that surrounds the first annotated activity.
     """
@@ -332,6 +339,9 @@ def main():
     # To provide temporal context to this, we plot a time range of 10 seconds 
     # surrounding this time period
     plotter.plot_all((plot_range[:, 0].min() - 10, plot_range[:, 1].max() + 10))
+    
+    # Or alternatively, plot all of the data. 
+    plotter.plot_all()
 
     
 if __name__ == '__main__': 

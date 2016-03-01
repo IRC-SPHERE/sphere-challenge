@@ -4,8 +4,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as pl
 
-import datetime
-
 import itertools as it
 
 import json
@@ -15,7 +13,7 @@ import os
 
 def slice_df(df, start_end):
     """
-    This slices a dataframe when the index column is the time 
+    This slices a dataframe when the index column is the time
     """
     
     inds = (df.index >= start_end[0]) & (df.index < start_end[1])
@@ -24,7 +22,7 @@ def slice_df(df, start_end):
 
 def slice_df_start_stop(df, start_end):
     """
-    This slices a dataframe that stores the sparse start-stop times 
+    This slices a dataframe that stores the sparse start-stop times
     """
     
     inds = (df.start < start_end[1]) & (df.end >= start_end[0])
@@ -288,22 +286,18 @@ def main():
     This function will plot all of the sensor data that surrounds the first annotated activity.
     """
     
-    sns.set_style("darkgrid")
-    sns.set_context('poster')
-    
-    pd.set_option("display.max_rows", 30)
-    pd.set_option('display.width', 1000)
-    
+    # Load training data (this will contain labels)
     plotter = SequenceVisualisation('public_data', 'public_data/train/00001')
+    
+    # Or load testing data (this visualisation will not contain labels and are 
+    # generally shorter sequences of data, between 10-30 seconds long)
+    plotter = SequenceVisualisation('public_data', 'public_data/test/00042')
     
     # This function will retreive the time range of the first jumping activity. 
     plot_range = plotter.time_of_activity('a_jump', 0)
     
     # To provide temporal context to this, we plot a time range of 10 seconds 
     # surrounding this time period
-    plotter.plot_all((plot_range[:, 0].min() - 10, plot_range[:, 1].max() + 10))
-    
-    # Or alternatively, plot all of the data. 
     plotter.plot_all()
 
 

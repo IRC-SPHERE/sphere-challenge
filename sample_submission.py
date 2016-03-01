@@ -43,30 +43,18 @@ Generate submission file
 
 se_cols = ['start', 'end']
 
-rows = []
-
-for te_ind_str in sorted(os.listdir(os.path.join('public_data', 'test'))):
-    te_ind = int(te_ind_str)
-    
-    meta = json.load(open(os.path.join('public_data', 'test', te_ind_str, 'meta.json')))
-    
-    starts = range(meta['end'])
-    ends = range(1, meta['end'] + 1)
-    
-    for start, end in zip(starts, ends):
-        pred_row = []
-        
-        pred_row.extend([te_ind, start, end])
-        pred_row.extend(prior_probs)
-        
-        rows.append(pred_row)
-
-        
-        
-"""
-Save the predictions to file
-"""
 with open(os.path.join('public_data', 'sample_submission.csv'), 'w') as fil: 
-    for row in rows: 
-        fil.write(','.join(map(str, row)))
+    for te_ind_str in sorted(os.listdir(os.path.join('public_data', 'test'))):
+        te_ind = int(te_ind_str)
+
+        meta = json.load(open(os.path.join('public_data', 'test', te_ind_str, 'meta.json')))
+
+        starts = range(meta['end'])
+        ends = range(1, meta['end'] + 1)
+
+        for start, end in zip(starts, ends):
+            row = [te_ind, start, end] + prior_probs
+
+            fil.write(','.join(map(str, row)))
+            fil.write('\n')
         

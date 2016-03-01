@@ -43,7 +43,7 @@ The following files are also available within the training directory:
 * annotations\_*.csv
 * aocations\_*.csv
 
-The data from _annotations\_\*.csv_ is used to create the targets.csv file, and _locations\_\*.csv_ files are availablef or participants that want to model indoor localisation. These are only available for the training set.
+The data from annotations\_\*.csv is used to create the targets.csv file, and locations\_\*.csv files are availablef or participants that want to model indoor localisation. These are only available for the training set.
 
 The dataset may be downloaded from data.bris: https://data.bris.ac.uk/data/
 

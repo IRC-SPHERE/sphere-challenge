@@ -4,7 +4,10 @@ All use of the data must cite the following:
 
 > Niall Twomey, Tom Diethe, Meelis Kull, Hao Song, Massimo Camplani, Sion Hannuna, Xenofon Fafoutis, Ni Zhu, Pete Woznowski, Peter Flach, and Ian Craddock. _The SPHERE Challenge: Activity Recognition with Multimodal Sensor Data_. 2016.
 
-This dataset has an associated homepage (http://irc-sphere.ac.uk/sphere-challenge/home), with the following pages
+This dataset has an associated homepage: 
+* http://irc-sphere.ac.uk/sphere-challenge/home
+
+The following pages are available in the dataset website:
 
 * [Prizes and Timelines](http://irc-sphere.ac.uk/sphere-challenge/prizes)
 * [Task Statement](http://irc-sphere.ac.uk/sphere-challenge/task)

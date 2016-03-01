@@ -17,7 +17,7 @@ The following pages are available in the dataset website:
 * [Evaluation Metrics](http://irc-sphere.ac.uk/sphere-challenge/evaluation)
 * [Challenge Rules](http://irc-sphere.ac.uk/sphere-challenge/rules)
 
-Furthermore, some scripts for visualising the data can be found in the challenge github repository: 
+A number of processing and visualisation scripts  can be found in the challenge github repository: 
 * https://github.com/IRC-SPHERE/sphere-challenge
 
 ## INTRODUCTION

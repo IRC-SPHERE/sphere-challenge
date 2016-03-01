@@ -58,7 +58,7 @@ This file contains the probabilistic targets for classification. Multiple annota
 
 The following 20 activities are labelled:
 
-`annotation_names = ('a_ascend', 'a_descend', 'a_jump', 'a_loadwalk', 'a_walk', 'p_bent', 'p_kneel', 'p_lie', 'p_sit', 'p_squat', 'p_stand', 't_bend', 't_kneel_stand', 't_lie_sit', 't__sit_lie', 't_sit_stand', 't_stand_kneel', 't_stand_sit', 't_straighten', 't_turn')`
+`annotation_names = ('a_ascend', 'a_descend', 'a_jump', 'a_loadwalk', 'a_walk', 'p_bent', 'p_kneel', 'p_lie', 'p_sit', 'p_squat', 'p_stand', 't_bend', 't_kneel_stand', 't_lie_sit', 't_sit_lie', 't_sit_stand', 't_stand_kneel', 't_stand_sit', 't_straighten', 't_turn')`
 
 The prefix ‘a\_’ indicates an ambulation activity (i.e. an activity consisting of continuing movement), ‘p\_’ annotations indicate static postures (i.e. times when the participants are stationary), and ‘t\_’ annotations indicate posture-to-posture transitions.
 
@@ -131,7 +131,7 @@ Locations.csv contains the following four columns:
 ### annotations\_*.csv (available in train only)
 The following 20 activities are annotated:
 
-`annotation_names = ('a_ascend', 'a_descend', 'a_jump', 'a_loadwalk', 'a_walk', 'p_bent', 'p_kneel', 'p_lie', 'p_sit', 'p_squat', 'p_stand', 't_bend', 't_kneel_stand', 't_lie_sit', 't__sit_lie', 't_sit_stand', 't_stand_kneel', 't_stand_sit', 't_straighten', 't_turn')`
+`annotation_names = ('a_ascend', 'a_descend', 'a_jump', 'a_loadwalk', 'a_walk', 'p_bent', 'p_kneel', 'p_lie', 'p_sit', 'p_squat', 'p_stand', 't_bend', 't_kneel_stand', 't_lie_sit', 't_sit_lie', 't_sit_stand', 't_stand_kneel', 't_stand_sit', 't_straighten', 't_turn')`
 
 As before, the prefix ‘a\_’ indicates an ambulation activity (i.e. an activity consisting of continuing movement), ‘p\_’ annotations indicate static postures (i.e. times when the participants are stationary), and ‘t\_’ annotations indicate posture-to-posture transitions.
 

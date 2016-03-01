@@ -1,4 +1,4 @@
-# SPHERE Challenge: Activity Recognition from Multimodal Sensor Data 
+# SPHERE Challenge: Activity Recognition with Multimodal Sensor Data 
 
 All use of the data must cite the following: 
 

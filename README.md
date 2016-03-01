@@ -14,7 +14,8 @@ This dataset has an associated homepage (http://irc-sphere.ac.uk/sphere-challeng
 * [Evaluation Metrics](http://irc-sphere.ac.uk/sphere-challenge/evaluation)
 * [Challenge Rules](http://irc-sphere.ac.uk/sphere-challenge/rules)
 
-Furthermore, some scripts for visualising the data can be found in the challenge github repository: https://github.com/IRC-SPHERE/sphere-challenge
+Furthermore, some scripts for visualising the data can be found in the challenge github repository: 
+* https://github.com/IRC-SPHERE/sphere-challenge
 
 ## INTRODUCTION
 
@@ -45,7 +46,8 @@ The following files are also available within the training directory:
 
 The data from annotations\_\*.csv is used to create the targets.csv file, and locations\_\*.csv files are availablef or participants that want to model indoor localisation. These are only available for the training set.
 
-The dataset may be downloaded from data.bris: https://data.bris.ac.uk/data/
+The dataset may be downloaded from data.bris: 
+* https://data.bris.ac.uk/data/
 
 ### targets.csv (available in train only)
 

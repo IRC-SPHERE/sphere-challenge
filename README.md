@@ -2,7 +2,7 @@
 
 All use of the data must cite the following: 
 
-Niall Twomey, Tom Diethe, Meelis Kull, Hao Song, Massimo Camplani, Sion Hannuna, Xenofon Fafoutis, Ni Zhu, Pete Woznowski, Peter Flach, and Ian Craddock. _The SPHERE Challenge: Activity Recognition with Multimodal Sensor Data_. 2016.
+> Niall Twomey, Tom Diethe, Meelis Kull, Hao Song, Massimo Camplani, Sion Hannuna, Xenofon Fafoutis, Ni Zhu, Pete Woznowski, Peter Flach, and Ian Craddock. _The SPHERE Challenge: Activity Recognition with Multimodal Sensor Data_. 2016.
 
 This dataset has an associated homepage (http://irc-sphere.ac.uk/sphere-challenge/home), with the following pages
 
@@ -55,7 +55,7 @@ This file contains the probabilistic targets for classification. Multiple annota
 
 The following 20 activities are labelled:
 
-annotation\_names = ('a\_ascend', 'a\_descend', 'a\_jump', 'a\_loadwalk', 'a\_walk', 'p\_bent', 'p\_kneel', 'p\_lie', 'p\_sit', 'p\_squat', 'p\_stand', 't\_bend', 't\_kneel\_stand', 't\_lie\_sit', 't\_sit\_lie', 't\_sit\_stand', 't\_stand\_kneel', 't\_stand\_sit', 't\_straighten', 't\_turn')
+`annotation\_names = ('a\_ascend', 'a\_descend', 'a\_jump', 'a\_loadwalk', 'a\_walk', 'p\_bent', 'p\_kneel', 'p\_lie', 'p\_sit', 'p\_squat', 'p\_stand', 't\_bend', 't\_kneel\_stand', 't\_lie\_sit', 't\_sit\_lie', 't\_sit\_stand', 't\_stand\_kneel', 't\_stand\_sit', 't\_straighten', 't\_turn')`
 
 The prefix ‘a\_’ indicates an ambulation activity (i.e. an activity consisting of continuing movement), ‘p\_’ annotations indicate static postures (i.e. times when the participants are stationary), and ‘t\_’ annotations indicate posture-to-posture transitions.
 
@@ -71,7 +71,7 @@ This file contains of 22 columns:
 
 This file contains the start time and duration for all PIR sensors in the smart environment. A PIR sensor is located in every room:
 
-pir\_locations = ('bath', 'bed1', 'bed2', 'hall', 'kitchen', 'living', 'stairs', 'study', 'toilet')
+`pir\_locations = ('bath', 'bed1', 'bed2', 'hall', 'kitchen', 'living', 'stairs', 'study', 'toilet')`
 
 The columns of this CSV file are:
 
@@ -115,7 +115,7 @@ The following two sets of file need not be used for the challenge, but are inclu
 
 This labels the room that is currently occupied by the recruited participant. The following rooms are labelled:
 
-location\_names = ('bath', 'bed1', 'bed2', 'hall', 'kitchen', 'living', 'stairs', 'study', 'toilet')
+`location\_names = ('bath', 'bed1', 'bed2', 'hall', 'kitchen', 'living', 'stairs', 'study', 'toilet')`
 
 Locations.csv contains the following four columns:
 
@@ -128,7 +128,7 @@ Locations.csv contains the following four columns:
 ### annotations\_*.csv (available in train only)
 The following 20 activities are annotated:
 
-annotation\_names = ('a\_ascend', 'a\_descend', 'a\_jump', 'a\_loadwalk', 'a\_walk', 'p\_bent', 'p\_kneel', 'p\_lie', 'p\_sit', 'p\_squat', 'p\_stand', 't\_bend', 't\_kneel\_stand', 't\_lie\_sit', 't\_sit\_lie', 't\_sit\_stand', 't\_stand\_kneel', 't\_stand\_sit', 't\_straighten', 't\_turn')
+`annotation\_names = ('a\_ascend', 'a\_descend', 'a\_jump', 'a\_loadwalk', 'a\_walk', 'p\_bent', 'p\_kneel', 'p\_lie', 'p\_sit', 'p\_squat', 'p\_stand', 't\_bend', 't\_kneel\_stand', 't\_lie\_sit', 't\_sit\_lie', 't\_sit\_stand', 't\_stand\_kneel', 't\_stand\_sit', 't\_straighten', 't\_turn')`
 
 As before, the prefix ‘a\_’ indicates an ambulation activity (i.e. an activity consisting of continuing movement), ‘p\_’ annotations indicate static postures (i.e. times when the participants are stationary), and ‘t\_’ annotations indicate posture-to-posture transitions.
 

@@ -4,6 +4,9 @@ All use of the data must cite the following:
 
 > Niall Twomey, Tom Diethe, Meelis Kull, Hao Song, Massimo Camplani, Sion Hannuna, Xenofon Fafoutis, Ni Zhu, Pete Woznowski, Peter Flach, and Ian Craddock. _The SPHERE Challenge: Activity Recognition with Multimodal Sensor Data_. 2016.
 
+BibTeX:
+@article{twomey2016sphere, title={The {SPHERE} Challenge: Activity Recognition with Multimodal Sensor Data}, author={Twomey, Niall and Diethe, Tom and Kull, Meelis and Song, Hao and Camplani, Massimo and Hannuna, Sion and Fafoutis, Xenofon and Zhu, Ni and Woznowski, Pete and Flach, Peter and others}, journal={arXiv preprint arXiv:1603.00797}, year={2016}}
+
 This dataset has an associated homepage: 
 * http://irc-sphere.ac.uk/sphere-challenge/home
 
@@ -50,7 +53,9 @@ The following files are also available within the training directory:
 The data from annotations\_\*.csv is used to create the targets.csv file, and locations\_\*.csv files are availablef or participants that want to model indoor localisation. These are only available for the training set.
 
 The dataset may be downloaded from data.bris: 
-* https://data.bris.ac.uk/data/
+* https://data.bris.ac.uk/data/dataset/8gccwpx47rav19vk8x4xapcog
+
+The row titled 'Compressed Dataset' in the table privides a link to download the full dataset. 
 
 ### targets.csv (available in train only)
 

@@ -13,7 +13,8 @@ import os
 
 def slice_df(df, start_end):
     """
-    This slices a dataframe when the index column is the time
+    This slices a dataframe when the index column is the time. This function slices the dataframe 'df' between a window
+    defined by the 'start_end' parameter. Time is given in seconds.
     """
     
     inds = (df.index >= start_end[0]) & (df.index < start_end[1])
@@ -22,7 +23,9 @@ def slice_df(df, start_end):
 
 def slice_df_start_stop(df, start_end):
     """
-    This slices a dataframe that stores the sparse start-stop times
+    Some data, eg PIR sensor data and annotation data, are stored in a sparse format in which the 'start' and 'stop'
+    times are stored. This helper function returns the sequences of a dataframe which fall within a window defined
+    by the 'start_stop' parameter.
     """
     
     inds = (df.start < start_end[1]) & (df.end >= start_end[0])
@@ -30,6 +33,11 @@ def slice_df_start_stop(df, start_end):
 
 
 class Slicer(object):
+    """
+    This class provides an interface to querying a dataframe object. Specifically, this is used to query the times for
+    which
+    """
+
     def __init__(self):
         pass
     
@@ -118,6 +126,12 @@ class Sequence(Slicer):
         
         self.annotations = []
         self.locations = []
+
+        self.targets = None 
+
+        targets_file_name = os.path.join(self.path, 'targets.csv')
+        if os.path.exists(targets_file_name): 
+            self.targets = pd.read_csv(targets_file_name)
         
         while True:
             annotation_filename = "{}/annotations_{}.csv".format(self.path, self.num_annotators)
@@ -138,6 +152,39 @@ class Sequence(Slicer):
         self.load_video()
         self.load_environmental()
         self.load_annotations()
+
+    def iterate(self):
+        start = range(int(self.meta['end']) + 1)
+        end = range(1, int(self.meta['end']) + 2)
+
+        pir_zeros = [np.zeros(10)] * len(self.pir_names)
+        pir_t = np.linspace(0, 1, 10, endpoint=False)
+        pir_df = pd.DataFrame(dict(zip(self.pir_names, pir_zeros)))
+        pir_df['t'] = pir_t
+        pir_df.set_index('t', inplace=True)
+
+        for lower, upper in zip(start, end):
+            lu = (lower, upper)
+
+            # Acceleration/RSSI
+            acceleration = slice_df(self.acceleration, lu)
+            rssi = slice_df(self.rssi, lu)
+
+            # PIR
+            pir_start_stop = slice_df_start_stop(self.pir, lu)
+            pir_df *= 0.0
+            if pir_start_stop.shape[0] > 0:
+                for si, series in pir_start_stop.iterrows():
+                    pir_df[series['name']] = 1.0
+
+            pir_t += 1
+
+            # Video
+            video_living_room = slice_df(self.video['living_room'], lu)
+            video_kitchen = slice_df(self.video['kitchen'], lu)
+            video_hallway = slice_df(self.video['hallway'], lu)
+
+            yield lu, (acceleration, rssi, pir_df.copy(), video_living_room, video_kitchen, video_hallway)
 
 
 class SequenceVisualisation(Sequence):
@@ -291,14 +338,16 @@ def main():
     
     # Or load testing data (this visualisation will not contain labels and are 
     # generally shorter sequences of data, between 10-30 seconds long)
-    plotter = SequenceVisualisation('public_data', 'public_data/test/00042')
+    # plotter = SequenceVisualisation('public_data', 'public_data/train/00001')
     
     # This function will retreive the time range of the first jumping activity. 
-    plot_range = plotter.time_of_activity('a_jump', 0)
+    plot_range = plotter.times_of_activity('a_jump')
+    print plot_range
     
     # To provide temporal context to this, we plot a time range of 10 seconds 
     # surrounding this time period
     plotter.plot_all()
+    pl.show()
 
 
 if __name__ == '__main__':

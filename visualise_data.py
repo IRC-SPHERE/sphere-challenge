@@ -201,16 +201,20 @@ class SequenceVisualisation(Sequence):
         elif self.num_annotators == 3:
             return [-0.1, 0.0, 0.1]
 
-    def plot_annotators(self, ax, lu=None):
+    def plot_annotators(self, ax=None, lu=None):
         if self.annotations_loaded == False:
             return
+
+        if ax is None:
+            fig, ax = pl.subplots(1, 1, sharex=True, sharey=False, figsize=(20, 5))
+        else:
+            pl.sca(ax)
 
         if lu is None:
             lu = (self.meta['start'], self.meta['end'])
 
-        pl.sca(ax)
 
-        palette = it.cycle(sns.color_palette())
+        palette = it.cycle(sns.husl_palette())
 
         offsets = self.get_offsets()
         for ai in xrange(self.num_annotators):
@@ -225,16 +229,19 @@ class SequenceVisualisation(Sequence):
         pl.ylim((-1, len(self.activity_targets)))
         pl.xlim(lu)
 
-    def plot_locations(self, ax, lu=None):
+    def plot_locations(self, ax=None, lu=None):
         if self.annotations_loaded == False:
             return
+
+        if ax is None:
+            fig, ax = pl.subplots(1, 1, sharex=True, sharey=False, figsize=(20, 5))
+        else:
+            pl.sca(ax)
 
         if lu is None:
             lu = (self.meta['start'], self.meta['end'])
 
-        pl.sca(ax)
-
-        palette = it.cycle(sns.color_palette())
+        palette = it.cycle(sns.husl_palette())
 
         offsets = self.get_offsets()
         for ai in xrange(self.num_annotators):

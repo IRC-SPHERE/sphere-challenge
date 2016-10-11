@@ -201,9 +201,12 @@ class SequenceVisualisation(Sequence):
         elif self.num_annotators == 3:
             return [-0.1, 0.0, 0.1]
 
-    def plot_annotators(self, ax, lu):
+    def plot_annotators(self, ax, lu=None):
         if self.annotations_loaded == False:
             return
+
+        if lu is None:
+            lu = (self.meta['start'], self.meta['end'])
 
         pl.sca(ax)
 
@@ -222,9 +225,12 @@ class SequenceVisualisation(Sequence):
         pl.ylim((-1, len(self.activity_targets)))
         pl.xlim(lu)
 
-    def plot_locations(self, ax, lu):
+    def plot_locations(self, ax, lu=None):
         if self.annotations_loaded == False:
             return
+
+        if lu is None:
+            lu = (self.meta['start'], self.meta['end'])
 
         pl.sca(ax)
 
@@ -242,7 +248,10 @@ class SequenceVisualisation(Sequence):
         pl.ylim((-1, len(self.location_targets)))
         pl.xlim(lu)
 
-    def plot_pir(self, lu, sharey=False):
+    def plot_pir(self, lu=None, sharey=False):
+        if lu is None:
+            lu = (self.meta['start'], self.meta['end'])
+
         num = [2, 1][sharey]
         first = [0, 0][sharey]
         second = [1, 0][sharey]
@@ -264,7 +273,10 @@ class SequenceVisualisation(Sequence):
 
         pl.tight_layout()
 
-    def plot_acceleration(self, lu, with_annotations=True, with_locations=False):
+    def plot_acceleration(self, lu=None, with_annotations=True, with_locations=False):
+        if lu is None:
+            lu = (self.meta['start'], self.meta['end'])
+
         fig, ax = pl.subplots(1, 1, sharex=True, sharey=False, figsize=(20, 7.5))
         ax2 = pl.twinx()
 
@@ -283,7 +295,10 @@ class SequenceVisualisation(Sequence):
 
         pl.tight_layout()
 
-    def plot_rssi(self, lu):
+    def plot_rssi(self, lu=None):
+        if lu is None:
+            lu = (self.meta['start'], self.meta['end'])
+
         fig, ax = pl.subplots(1, 1, sharex=True, sharey=False, figsize=(20, 5))
         ax2 = pl.twinx()
 
@@ -298,7 +313,10 @@ class SequenceVisualisation(Sequence):
 
         pl.tight_layout()
 
-    def plot_video(self, cols, lu):
+    def plot_video(self, cols, lu=None):
+        if lu is None:
+            lu = (self.meta['start'], self.meta['end'])
+
         fig, axes = pl.subplots(3, 1, sharex=True, figsize=(20, 10))
         for vi, (kk, vv) in enumerate(self.video.iteritems()):
             x = np.asarray(vv.index.tolist())
@@ -319,13 +337,10 @@ class SequenceVisualisation(Sequence):
         pl.tight_layout()
 
     def plot_all(self, plot_range=None):
-        if plot_range is None:
-            plot_range = (self.meta['start'], self.meta['end'])
-
-        self.plot_pir(plot_range, sharey=True)
-        self.plot_rssi(plot_range)
-        self.plot_acceleration(plot_range)
-        self.plot_video(self.centre_2d, plot_range)
+        self.plot_pir(lu=plot_range, sharey=True)
+        self.plot_rssi(lu=plot_range)
+        self.plot_acceleration(lu=plot_range)
+        self.plot_video(self.centre_2d, lu=plot_range)
 
 
 def main():
@@ -338,7 +353,7 @@ def main():
 
     # Or load testing data (this visualisation will not contain labels and are
     # generally shorter sequences of data, between 10-30 seconds long)
-    # plotter = SequenceVisualisation('public_data', 'public_data/train/00001')
+    plotter = SequenceVisualisation('public_data/metadata', 'public_data/train/00001')
 
     # This function will retreive the time range of the first jumping activity.
     plot_range = plotter.times_of_activity('a_jump')

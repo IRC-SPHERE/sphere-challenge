@@ -21,7 +21,7 @@ The following pages are available in the dataset website:
 * Sensor Description: http://irc-sphere.ac.uk/sphere-challenge/sensors
 * Data Formats: [documents/data.md](documents/data.md) 
 * Evaluation Metrics: [documents/evaluation.md](documents/evaluation.md) 
-* Challenge Rules: http://irc-sphere.ac.uk/sphere-challenge/rules
+* Challenge Rules: [documents/rules.md](documents/rules.md) 
 
 A number of processing and visualisation scripts  can be found in the challenge github repository: 
 * https://github.com/IRC-SPHERE/sphere-challenge

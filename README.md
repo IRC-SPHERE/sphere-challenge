@@ -22,6 +22,7 @@ The following pages are available in the dataset website:
 * Data Formats: [documents/data.md](documents/data.md) 
 * Evaluation Metrics: [documents/evaluation.md](documents/evaluation.md) 
 * Challenge Rules: [documents/rules.md](documents/rules.md) 
+* Outcome: [documents.outcome.md](documents/outcome.md)
 
 A number of processing and visualisation scripts  can be found in the challenge github repository: 
 * https://github.com/IRC-SPHERE/sphere-challenge

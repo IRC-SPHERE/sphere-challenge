@@ -17,7 +17,7 @@ The following pages are available in the dataset website:
 * Call for participation: [documents/call.md](documents/call.md)
 * Prizes and Timelines: [Available in the call for participation](documents/call.md#prizes) 
 * Task Statement: [documents/taskstatement.md](documents/taskstatement.md) 
-* Annotations: http://irc-sphere.ac.uk/sphere-challenge/annotation
+* Annotations: [documents/annotation.md](documents/annotation.md)
 * Sensor Description: http://irc-sphere.ac.uk/sphere-challenge/sensors
 * Data Formats: [documents/data.md](documents/data.md) 
 * Evaluation Metrics: [documents/evaluation.md](documents/evaluation.md) 

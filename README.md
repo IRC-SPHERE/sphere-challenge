@@ -19,7 +19,7 @@ The following pages are available in the dataset website:
 * Task Statement: [documents/taskstatement.md](documents/taskstatement.md) 
 * Annotations: http://irc-sphere.ac.uk/sphere-challenge/annotation
 * Sensor Description: http://irc-sphere.ac.uk/sphere-challenge/sensors
-* Data Formats: http://irc-sphere.ac.uk/sphere-challenge/data
+* Data Formats: [documents/data.md](documents/data.md) 
 * Evaluation Metrics: http://irc-sphere.ac.uk/sphere-challenge/evaluation
 * Challenge Rules: http://irc-sphere.ac.uk/sphere-challenge/rules
 

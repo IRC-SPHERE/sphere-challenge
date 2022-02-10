@@ -14,6 +14,7 @@ The relevant segments of this website are mirrored here.
 
 The following pages are available in the dataset website:
 
+* Call for participation: [documents/call.md](documents/call.md)
 * Prizes and Timelines: [Available in the call for participation](documents/call.md#prizes) 
 * Task Statement: http://irc-sphere.ac.uk/sphere-challenge/task
 * Annotations: http://irc-sphere.ac.uk/sphere-challenge/annotation

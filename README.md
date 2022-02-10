@@ -14,15 +14,15 @@ The relevant segments of this website are mirrored here.
 
 The following pages are available in the dataset website:
 
-* Call for participation: [documents/call.md](documents/call.md)
-* Prizes and Timelines: [Available in the call for participation](documents/call.md#prizes) 
 * Task Statement: [documents/taskstatement.md](documents/taskstatement.md) 
 * Annotations: [documents/annotation.md](documents/annotation.md)
-* Sensor Description: http://irc-sphere.ac.uk/sphere-challenge/sensors
+* Sensor Description: [documents/sensors.md](documents/sensors.md)
 * Data Formats: [documents/data.md](documents/data.md) 
 * Evaluation Metrics: [documents/evaluation.md](documents/evaluation.md) 
 * Challenge Rules: [documents/rules.md](documents/rules.md) 
 * Outcome: [documents.outcome.md](documents/outcome.md)
+* Call for participation: [documents/call.md](documents/call.md)
+* Prizes and Timelines: [Available in the call for participation](documents/call.md#prizes) 
 
 A number of processing and visualisation scripts  can be found in the challenge github repository: 
 * https://github.com/IRC-SPHERE/sphere-challenge

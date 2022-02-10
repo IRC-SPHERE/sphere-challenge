@@ -20,7 +20,7 @@ The following pages are available in the dataset website:
 * Annotations: http://irc-sphere.ac.uk/sphere-challenge/annotation
 * Sensor Description: http://irc-sphere.ac.uk/sphere-challenge/sensors
 * Data Formats: [documents/data.md](documents/data.md) 
-* Evaluation Metrics: http://irc-sphere.ac.uk/sphere-challenge/evaluation
+* Evaluation Metrics: [documents/evaluation.md](documents/evaluation.md) 
 * Challenge Rules: http://irc-sphere.ac.uk/sphere-challenge/rules
 
 A number of processing and visualisation scripts  can be found in the challenge github repository: 

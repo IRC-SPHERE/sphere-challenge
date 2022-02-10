@@ -1,4 +1,4 @@
-# SPHERE Challenge: Activity Recognition with Multimodal Sensor Data {#introduction}
+# SPHERE Challenge: Activity Recognition with Multimodal Sensor Data <a name="#introduction"></a>
 
 Obesity, depression, stroke, falls, cardiovascular and musculoskeletal
 disease are some of the biggest health issues and fastest-rising categories

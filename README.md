@@ -9,11 +9,12 @@ BibTeX:
 
 The original homepage of this dataset was at: 
 * http://irc-sphere.ac.uk/sphere-challenge/home (no longer available)
+
 The relevant segments of this website are mirrored here. 
 
 The following pages are available in the dataset website:
 
-* Prizes and Timelines: [mirror](documents/call.md#prizes) http://irc-sphere.ac.uk/sphere-challenge/prizes
+* Prizes and Timelines: [Available in the call for participation](documents/call.md#prizes) 
 * Task Statement: http://irc-sphere.ac.uk/sphere-challenge/task
 * Annotations: http://irc-sphere.ac.uk/sphere-challenge/annotation
 * Sensor Description: http://irc-sphere.ac.uk/sphere-challenge/sensors

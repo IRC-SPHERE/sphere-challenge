@@ -1,5 +1,7 @@
 # SPHERE Challenge: Activity Recognition with Multimodal Sensor Data
 
+## Introduction
+
 Obesity, depression, stroke, falls, cardiovascular and musculoskeletal
 disease are some of the biggest health issues and fastest-rising categories
 of health-care costs. The financial expenditure associated with these is
@@ -39,11 +41,11 @@ well-being of the participant, how mobile/responsive is the participant,
 how active/sedentary, etc.
 
 
-## Challenge Website: [](#website)
+## Challenge Website
 
 http://irc-sphere.ac.uk/sphere-challenge/home
 
-## Organizers: [](#organizers)
+## Organizers
 
 Discovery Challenge Chairs
 
@@ -64,7 +66,9 @@ Peter Flach - peter.flach at bristol.ac.uk
 Ian Craddock - ian.craddock at bristol.ac.uk
 
 
-## Prizes will be awarded to the first three winners: [](#prizes)
+## Prizes 
+
+Prizes will be awarded to the first three winners
 
 - 1,000 being awarded to the winner;
 - 600 to the runner up; and
@@ -72,7 +76,7 @@ Ian Craddock - ian.craddock at bristol.ac.uk
 
 
 
-## Deadlines:[](#deadlines)
+## Deadlines
 
 Solution Proposal Deadline: June 19 2016 24:00 - As long as it is June 19
 anywhere in the world (Time Zone in Midway, US Minor Outlying Islands,

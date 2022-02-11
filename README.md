@@ -7,6 +7,8 @@ All use of the data must cite the following:
 BibTeX:
 @article{twomey2016sphere, title={The {SPHERE} Challenge: Activity Recognition with Multimodal Sensor Data}, author={Twomey, Niall and Diethe, Tom and Kull, Meelis and Song, Hao and Camplani, Massimo and Hannuna, Sion and Fafoutis, Xenofon and Zhu, Ni and Woznowski, Pete and Flach, Peter and others}, journal={arXiv preprint arXiv:1603.00797}, year={2016}}
 
+This paper may be found at [Arxiv](https://arxiv.org/abs/1603.00797)
+
 The original homepage of this dataset was at: 
 * http://irc-sphere.ac.uk/sphere-challenge/home (no longer available)
 
